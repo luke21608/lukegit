@@ -50,7 +50,12 @@ bower.json
 .byebug_history
 
 # Ignore node_modules
-node_modules/
+myProject/node_modules/*
+myProject/config/*
+/img
+package.json
+package-lock.json
+.gitignore
 
 # Ignore precompiled javascript packs
 /public/packs
