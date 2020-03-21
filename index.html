@@ -1,16 +1,81 @@
 <!DOCTYPE html>
  
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="UTF-8" />
+    <title>lukegit</title>
+    <style type="text/css">
+    	.v_color{
+    		color: green;
+    	}
+
+    	.v_size{
+    		font-size: 20px;
+    	}
+    </style>
 </head>
 <body>
-<form action="/submit" method="post">
-        First Name: <input name="firstName" type="text" />
-        Last Name: <input name="lastName" type="text" />
-<input type="submit" />
-</form>
- 
+
+	<div id="vue" v-bind:class="{v_color: true, v_size: true}">
+		<ul>
+			<li v-for="(country, index) in world">
+				{{worldMsg}} : {{index}} -> {{country.name}}
+			</li>
+		</ul>
+		<!-- <form action="submit.html" @submit="keyScore('submit')">
+			<button type="submit">submit</button>
+		</form> -->
+<!-- 		<div v-show="score">
+			<p v-if="score > 10">over</p>
+			<p v-else-if="score >5">high</p>
+			<p v-else>low</p>
+		</div>
+		<h1>{{score}}</h1>
+		<input type="text" id="text1" v-model="score">
+		<button v-on:click="keyScore('111')">button</button> -->
+	</div>
+
+	<div id="vue2">
+		<div v-bind:style="vStyle">
+			STYLE
+		</div>
+	</div>
+
+	<form action="/submit" method="post">
+	        First Name: <input name="firstName" type="text" />
+	        Last Name: <input name="lastName" type="text" />
+		<input type="submit" />
+	</form>
+	 
+
 </body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+	new Vue({
+		el: '#vue',
+		data: {
+			score: 0,
+			worldMsg: 'Country in world',
+			world:[
+				{name: 'TAIWAN'},
+				{name: 'JAPAN'},
+				{name: 'USA'}
+			]
+		},
+		methods:{
+			keyScore: function(msg){
+				alert(msg);
+			}
+		}
+	});
+
+	new Vue({
+		el: '#vue2',
+		data:{
+			vStyle:{
+				color: 'red',
+				fontSize: '50px'
+			}
+		}
+	});
+</script>
 </html>
