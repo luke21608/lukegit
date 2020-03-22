@@ -15,42 +15,47 @@
 </head>
 <body>
 
-	<div id="vue" v-bind:class="{v_color: true, v_size: true}">
-		<ul>
-			<li v-for="(country, index) in world">
-				{{worldMsg}} : {{index}} -> {{country.name}}
-			</li>
-		</ul>
-		<!-- <form action="submit.html" @submit="keyScore('submit')">
-			<button type="submit">submit</button>
-		</form> -->
-<!-- 		<div v-show="score">
+	<div id="vue" >
+		<!-- loop -->
+		<div v-bind:class="{v_color: true, v_size: true}">
+			<ul>
+				<li v-for="(country, index) in world">
+					{{worldMsg}} : {{index}} -> {{country.name}}
+				</li>
+			</ul>
+		</div>
+		<!-- click -->
+		<div>
+			<input type="text" id="text1" v-model="myMsg">
+			<button v-on:click="keyScore()">alertInput</button>
+		</div>
+		<!-- show if -->
+ 		<div v-show="score">
 			<p v-if="score > 10">over</p>
 			<p v-else-if="score >5">high</p>
 			<p v-else>low</p>
 		</div>
-		<h1>{{score}}</h1>
-		<input type="text" id="text1" v-model="score">
-		<button v-on:click="keyScore('111')">button</button> -->
+        <span v-bind:style="{color: 'blue'}">Score:</span><input type="text" v-model="score">
+        <!-- post node js -->
+		<form action="/fndemail" method="post" @submit="findEmail()">
+		        Name: <input type="text" v-model="user.name" placeholder="姓名" />
+		        Email: <input type="text" v-model="user.email" placeholder="Email" />
+			<input type="submit" />
+		</form>
 	</div>
 
 	<div id="vue2">
 		<div v-bind:style="vStyle">
 			STYLE
 		</div>
-	</div>
-
-	<form action="/submit" method="post">
-	        First Name: <input name="firstName" type="text" />
-	        Last Name: <input name="lastName" type="text" />
-		<input type="submit" />
-	</form>
-	 
+	</div>	 
 
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
-	new Vue({
+	let app = new Vue({
 		el: '#vue',
 		data: {
 			score: 0,
@@ -59,11 +64,17 @@
 				{name: 'TAIWAN'},
 				{name: 'JAPAN'},
 				{name: 'USA'}
-			]
+			],
+			myMsg: "init",
+			user:{
+				name: "",
+				email: ""
+			}
 		},
 		methods:{
 			keyScore: function(msg){
-				alert(msg);
+				var v = this;
+				alert(v.myMsg);
 			}
 		}
 	});

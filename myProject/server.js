@@ -5,13 +5,29 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.get("/", function(req,res){
-	res.send("hello world");
+app.use(express.static('public'));
+app.use('/fake', express.static(__dirname + '/img'));
+
+app.get('/', function(req, res){
+	res.sendFile(__dirname + '/index.html');
 });
 
 app.listen(port, () => {
 	console.log("listening %d ...", port);
 });
+
+//handle json
+const users = require('./route/api/users');
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use("/api/users", users);
+
+app.post("/testServer",(req,res) => {
+	var msg = req.body.name;
+    res.json({msg: msg});
+});
+
 
 //MongoDB set
 const mongoose = require('mongoose');
@@ -26,15 +42,3 @@ db.once('open', function(){
 });
 
 console.log("MongoDB connected!");
-
-//handle json
-const users = require('./route/api/users');
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
-app.use("/api/users", users);
-
-app.post("/testServer",(req,res) => {
-	var msg = req.body.name;
-    res.json({msg: msg});
-});

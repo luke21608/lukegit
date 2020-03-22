@@ -56,6 +56,10 @@ myProject/config/*
 package.json
 package-lock.json
 .gitignore
+dbtest.js
+index.html
+myJS.js
+submit.html
 
 # Ignore precompiled javascript packs
 /public/packs

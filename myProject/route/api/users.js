@@ -4,8 +4,9 @@ const User = require('../../models/User');
 const bcrypt = require("bcrypt");
 
 router.post("/test",(req,res) => {
+	var user = req.body.user;
 	var msg = req.body.name;
-    res.json({msg: msg});
+    res.json({msg: msg, user: user});
 });
 
 //create
@@ -43,17 +44,28 @@ router.get('/find', function(req,res){
 });
 
 //read
-router.get('/fndemail', function(req,res){
+router.post('/findemail', function(req,res){
+	console.log(req.body.name);
+	console.log(req.body.email);
+
+	var result = {
+		"success": true,
+		"msg": 'pass'
+	};
+	var name = req.body.name;
+	var email = req.body.email;
+
 	User.
-		findOne({ name: req.body.name }, function(err,user){
+		findOne({ name: name }, function(err,user){
 			console.log(user);
 
-			user.comparePassword(req.body.email, function(err, isMatch) {
-			   if (err) throw err;
-			   console.log('%s ' + isMatch, req.body.email);
+			user.comparePassword(email, function(err, isMatch) {
+			   	if (err) throw err;
+			   	result.msg = email + " is " + isMatch;
+			   	console.log(result);
+			    res.json(result);
+			    res.end();
 			});
-
-			res.status(200).json('pass');
 		});
 });
 
