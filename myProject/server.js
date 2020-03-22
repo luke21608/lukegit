@@ -4,10 +4,10 @@ console.log("***************");
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
-
+//img test
 app.use(express.static('public'));
 app.use('/fake', express.static(__dirname + '/img'));
-
+//VueJS test
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html');
 });

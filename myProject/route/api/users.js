@@ -3,13 +3,14 @@ const router = express.Router();
 const User = require('../../models/User');
 const bcrypt = require("bcrypt");
 
+//test post
 router.post("/test",(req,res) => {
 	var user = req.body.user;
 	var msg = req.body.name;
     res.json({msg: msg, user: user});
 });
 
-//create
+//mongo create
 router.post("/register", function(req,res){
 	console.log(req.body.name);
 	console.log(req.body.email);
@@ -31,7 +32,7 @@ router.post("/register", function(req,res){
 	});
 });
 
-//read
+//mongo read
 router.get('/find', function(req,res){
 	User.
 		find({ name: /Lu/ } ).
@@ -43,7 +44,7 @@ router.get('/find', function(req,res){
 		});
 });
 
-//read
+//mongo read, VueJS
 router.post('/findemail', function(req,res){
 	console.log(req.body.name);
 	console.log(req.body.email);
@@ -69,7 +70,7 @@ router.post('/findemail', function(req,res){
 		});
 });
 
-//update
+//mongo update
 router.post('/update', function(req,res){
 	var tempUser = {
 		name: req.body.name,
@@ -89,7 +90,7 @@ router.post('/update', function(req,res){
 	});
 });
 
-//delete
+//mongo delete
 router.delete('/deleteOne', function(req,res){
 	User.deleteOne({name:req.body.name}, function(err){
 		if(err) console.log(err);
