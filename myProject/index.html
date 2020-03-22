@@ -37,16 +37,18 @@
 		</div>
         <span v-bind:style="{color: 'blue'}">Score:</span><input type="text" v-model="score">
         <!-- post node js -->
-		<form action="/fndemail" method="post" @submit="findEmail()">
-		        Name: <input type="text" v-model="user.name" placeholder="姓名" />
-		        Email: <input type="text" v-model="user.email" placeholder="Email" />
+		<form @submit="findEmail()">
+		    Name: <input type="text" v-model="user.name" placeholder="姓名" />
+		    Email: <input type="text" v-model="user.email" placeholder="Email" />
 			<input type="submit" />
+			{{user}}
+			<div v-text="findResult"></div>
 		</form>
 	</div>
 
 	<div id="vue2">
 		<div v-bind:style="vStyle">
-			STYLE
+			VUE2 div
 		</div>
 	</div>	 
 
@@ -69,12 +71,32 @@
 			user:{
 				name: "",
 				email: ""
-			}
+			},
+			findResult:"waiting submit.."
 		},
 		methods:{
 			keyScore: function(msg){
 				var v = this;
 				alert(v.myMsg);
+			},
+			findEmail: function(){
+				var v = this;
+
+				$.ajax({
+					url: "/api/users/findemail",
+					type: "POST",
+					data: {
+						name: v.user.name,
+						email: v.user.email
+					},
+					success: function(result){
+						alert('success');
+						v.findResult = result.msg;
+					},
+					error: function(){
+						alert('error');
+					}
+				});
 			}
 		}
 	});
