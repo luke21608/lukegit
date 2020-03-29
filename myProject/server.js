@@ -6,7 +6,11 @@ const app = express();
 const port = process.env.PORT || 5000;
 //img test
 app.use(express.static('public'));
-app.use('/fake', express.static(__dirname + '/img'));
+app.use('/fake', express.static(__dirname + '/img/001.png'));
+app.use('/img', express.static(__dirname + '/img'));
+//pdf test
+app.use('/pdf', express.static(__dirname + '/pdf/Resume.pdf'));
+
 //VueJS test
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html');

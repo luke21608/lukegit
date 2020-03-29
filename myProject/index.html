@@ -1,114 +1,353 @@
 <!DOCTYPE html>
- 
-<head>
-    <meta charset="UTF-8" />
-    <title>lukegit</title>
-    <style type="text/css">
-    	.v_color{
-    		color: green;
-    	}
 
-    	.v_size{
-    		font-size: 20px;
-    	}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>lukegit-my journey</title>
+    <style type="text/css">
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        }
+
+        .myblog{
+            background-color: #f4faff;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .row .myhighlight{
+            text-align: center;
+        }
+        
+        .row .carousel-inner{
+            margin-top: 50px;
+        }
+        
+        .row .carousel-inner .carousel-item{
+            height: 500px;
+        }
+        
+        .test_footer{
+            border-style: inset;
+            padding-top: 30px;
+/*            background-color: #f4faff;*/
+        }
+        
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown>.dropdown-toggle:active {
+            /*Without this, clicking will make it sticky*/
+            pointer-events: none;
+        }
+
+        .v_color {
+            color: green;
+        }
+
+        .v_size {
+            font-size: 20px;
+        }
+
     </style>
 </head>
+<!--extension with Beautify & Emmet-->
+
 <body>
 
-	<div id="vue" >
-		<!-- loop -->
-		<div v-bind:class="{v_color: true, v_size: true}">
-			<ul>
-				<li v-for="(country, index) in world">
-					{{worldMsg}} : {{index}} -> {{country.name}}
-				</li>
-			</ul>
-		</div>
-		<!-- click -->
-		<div>
-			<input type="text" id="text1" v-model="myMsg">
-			<button v-on:click="keyScore()">alertInput</button>
-		</div>
-		<!-- show if -->
- 		<div v-show="score">
-			<p v-if="score > 10">over</p>
-			<p v-else-if="score >5">high</p>
-			<p v-else>low</p>
-		</div>
-        <span v-bind:style="{color: 'blue'}">Score:</span><input type="text" v-model="score">
-        <!-- post node js -->
-		<form @submit="findEmail()">
-		    Name: <input type="text" v-model="user.name" placeholder="姓名" />
-		    Email: <input type="text" v-model="user.email" placeholder="Email" />
-			<input type="submit" />
-			{{user}}
-			<div v-text="findResult"></div>
-		</form>
-	</div>
+    <div class="container-fluid myblog">
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="#">MyJourney</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-	<div id="vue2">
-		<div v-bind:style="vStyle">
-			VUE2 div
-		</div>
-	</div>	 
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pdf">Resume</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">nav2</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Travel
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Auz</a></li>
+                                <li class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Nz</a></li>
+                                <li class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">EU</a></li>
+                                <li class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">USA</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+        <div class="row">
+            <div class="col-12">
+                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-interval="30000" data-img-lg="/img/AUZ_LG.jpg" data-img-xs="/img/AUZ_XS.jpg" data-img-sm="/img/AUZ.jpg">
+                            <img src="" class="d-block w-100" alt="" style="width: 100%;height: 100%">
+                            <div class="carousel-caption d-none d-sm-block">
+                                <h2 class="font-italic">Auz</h2>
+                                <h3 class="font-italic">Darwin is the capital city of the Northern Territory of Australia.</h3>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="30000" data-img-lg="/img/NZ_LG.jpg" data-img-xs="/img/NZ_XS.jpg" data-img-sm="/img/NZ.jpg">
+                            <img src="" class="d-block w-100" alt="" style="width: 100%;height: 100%">
+                            <div class="carousel-caption d-none d-sm-block">
+                                <h2 class="font-italic">NZ</h2>
+                                <h3 class="font-italic">Wanaka is a popular ski and summer resort town in the Otago region of the South Island of New Zealand.</h3>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="30000" data-img-lg="/img/EU_LG.jpg" data-img-xs="/img/EU_XS.jpg" data-img-sm="/img/EU.jpg">
+                            <img src="" class="d-block w-100" alt="" style="width: 100%;height: 100%">
+                            <div class="carousel-caption d-none d-sm-block">
+                                <h2 class="font-italic">EU</h2>
+                                <h3 class="font-italic">Hallstatt is a village in Upper Austria. Currently, a little over 900 people live there. It is in the Salzkammergut, a mountain regionin Austria.</h3>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="30000" data-img-lg="/img/USA_LG.jpg" data-img-xs="/img/USA_XS.jpg" data-img-sm="/img/USA.jpg">
+                            <img src="" class="d-block w-100" alt="" style="width: 100%;height: 100%">
+                            <div class="carousel-caption d-none d-sm-block">
+                                <h2 class="font-italic">USA</h2>
+                                <h3 class="font-italic">Los Angeles officially the City of Los Angeles and often known by its initials L.A., is the largest city in the U.S. state of California.</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row" style="margin-top: 30px;margin-bottom: 30px">
+                    <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight">
+                        <img src="/img/150.png" class="rounded-circle" />
+                        <h2>Australia</h2>
+                        <p>Working holiday story...</p>
+                        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight">
+                        <img src="/img/150.png" class="rounded-circle" />
+                        <h2>New Zealand</h2>
+                        <p>Travel story...</p>
+                        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight">
+                        <img src="/img/150.png" class="rounded-circle" />
+                        <h2>Europe</h2>
+                        <p>Travel story...</p>
+                        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight">
+                        <img src="/img/150.png" class="rounded-circle" />
+                        <h2>USA</h2>
+                        <p>Travel story...</p>
+                        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!--test bottom-->
+            <div class="col-12 test_footer">
+                <div id="vue">
+                    <!-- loop -->
+                    <div v-bind:class="{v_color: true, v_size: true}">
+                        <ul>
+                            <li v-for="(country, index) in world">
+                                {{worldMsg}} : {{index}} -> {{country.name}}
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- click -->
+                    <div>
+                        <input type="text" id="text1" v-model="myMsg">
+                        <button v-on:click="keyScore()">alertInput</button>
+                    </div>
+                    <!-- show if -->
+                    <div v-show="score">
+                        <p v-if="score > 10">over</p>
+                        <p v-else-if="score >5">high</p>
+                        <p v-else>low</p>
+                    </div>
+                    <span v-bind:style="{color: 'blue'}">Score:</span><input type="text" v-model="score">
+                    <!-- post node js -->
+                    <form @submit="findEmail()">
+                        Name: <input type="text" v-model="user.name" placeholder="姓名" />
+                        Email: <input type="text" v-model="user.email" placeholder="Email" />
+                        <input type="submit" />
+                        {{user}}
+                        <div v-text="findResult"></div>
+                    </form>
+                </div>
+
+                <div id="vue2">
+                    <div v-bind:style="vStyle">
+                        VUE2 div
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
 <script>
-	let app = new Vue({
-		el: '#vue',
-		data: {
-			score: 0,
-			worldMsg: 'Country in world',
-			world:[
-				{name: 'TAIWAN'},
-				{name: 'JAPAN'},
-				{name: 'USA'}
-			],
-			myMsg: "init",
-			user:{
-				name: "",
-				email: ""
-			},
-			findResult:"waiting submit.."
-		},
-		methods:{
-			keyScore: function(msg){
-				var v = this;
-				alert(v.myMsg);
-			},
-			findEmail: function(){
-				var v = this;
+    $(document).ready(function() {
+        function resize() {
+            //獲取螢幕寬度
+            var windowWidth = $(window).width();
+            //判斷當前螢幕是大螢幕還是小螢幕
+            var isLG = windowWidth >= 992;
+            var isXS = windowWidth < 576;
+            var isSM = !isLG && !isXS ? true : false;
+            //遍歷輪播圖中每一項		
+            $(".carousel-inner .carousel-item").each(function(i, item) {
+                //需要將DOM物件轉化為jqurey物件，才能呼叫jquery方法
+                var $item = $(item);
+                //根據螢幕寬度給輪播圖中的背景圖片設定為大圖片或是小圖片
+                var imgUrl = $item.data("img-sm");
+                if (isLG) {
+                    imgUrl = $item.data("img-lg");
+                } else if (isXS) {
+                    imgUrl = $item.data("img-xs");
+                }
 
-				$.ajax({
-					url: "/api/users/findemail",
-					type: "POST",
-					data: {
-						name: v.user.name,
-						email: v.user.email
-					},
-					success: function(result){
-						alert('success');
-						v.findResult = result.msg;
-					},
-					error: function(){
-						alert('error');
-					}
-				});
-			}
-		}
-	});
+                $item.children("img").attr("src", imgUrl);
+            })
+        }
+        //觸發resize事件
+        $(window).on("resize", resize)
+            .trigger("resize");
 
-	new Vue({
-		el: '#vue2',
-		data:{
-			vStyle:{
-				color: 'red',
-				fontSize: '50px'
-			}
-		}
-	});
+        //當瀏覽器為手機螢幕時，加上手指滑動輪播圖的效果
+        //首先，根據手指觸控的輪播圖的位置的到使用者手指的起始座標
+        var $carousel = $(".carousel");
+        var startClientX = 0;
+        var clientX = 30;
+        $carousel.on("touchstart", function(e) {
+            startClientX = e.originalEvent.touches[0].clientX;
+        });
+
+        $carousel.on("touchmove", function(e) {
+            //然後的得到使用者移動後的座標
+            var targetClientX = e.originalEvent.touches[0].clientX;
+            //判斷使用者移動的距離是否超過了閾值
+            var target = Math.abs(targetClientX - startClientX);
+            if (target > clientX) {
+                //然後，根據使用者移動的方向判斷使用者是左滑動還是右滑動，根據左右方向觸發左右滑動
+                $(".carousel").carousel(targetClientX - startClientX > 0 ? "prev" : "next");
+
+            }
+
+        });
+    });
+
+    let app = new Vue({
+        el: '#vue',
+        data: {
+            score: 0,
+            worldMsg: 'Country in world',
+            world: [{
+                    name: 'TAIWAN'
+                },
+                {
+                    name: 'JAPAN'
+                },
+                {
+                    name: 'USA'
+                }
+            ],
+            myMsg: "init",
+            user: {
+                name: "",
+                email: ""
+            },
+            findResult: "waiting submit.."
+        },
+        methods: {
+            keyScore: function(msg) {
+                var v = this;
+                alert(v.myMsg);
+            },
+            findEmail: function() {
+                var v = this;
+
+            axios({
+                method: 'post',
+                url: '/api/users/findemail',
+                data: {
+                        name: v.user.name,
+                        email: v.user.email
+                }
+            }).then(function (response) {
+                console.log(response);
+                v.findResult = result.msg;
+
+            }).catch(function (err) {
+                console.log(err);
+            });
+                // $.ajax({
+                //     url: "/api/users/findemail",
+                //     type: "POST",
+                //     data: {
+                //         name: v.user.name,
+                //         email: v.user.email
+                //     },
+                //     success: function(result) {
+                //         alert('success');
+                //         v.findResult = result.msg;
+                //     },
+                //     error: function() {
+                //         alert('error');
+                //     }
+                // });
+            }
+        }
+    });
+
+    new Vue({
+        el: '#vue2',
+        data: {
+            vStyle: {
+                color: 'red',
+                fontSize: '50px'
+            }
+        }
+    });
+
 </script>
+
 </html>

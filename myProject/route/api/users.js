@@ -48,6 +48,7 @@ router.get('/find', function(req,res){
 router.post('/findemail', function(req,res){
 	console.log(req.body.name);
 	console.log(req.body.email);
+res.status(200).end(req.body.email);
 
 	var result = {
 		"success": true,
@@ -64,8 +65,8 @@ router.post('/findemail', function(req,res){
 			   	if (err) throw err;
 			   	result.msg = email + " is " + isMatch;
 			   	console.log(result);
-			    res.json(result);
-			    res.end();
+			    //res.json(result);
+			    //res.end("123");
 			});
 		});
 });
