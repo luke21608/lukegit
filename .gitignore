@@ -52,7 +52,6 @@ bower.json
 # Ignore node_modules
 myProject/node_modules/*
 myProject/config/*
-/img
 package.json
 package-lock.json
 .gitignore
