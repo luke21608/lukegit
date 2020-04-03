@@ -55,6 +55,8 @@ myProject/config/*
 package.json
 package-lock.json
 .gitignore
+node_modules/*
+config/*
 
 # Ignore precompiled javascript packs
 /public/packs
