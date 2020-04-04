@@ -18,6 +18,12 @@
             padding: 0px;
         }
         
+        .nav-item:hover {
+	        border-radius: 25px;
+	        transition: all 0.5s linear; 
+            background-color: cornflowerblue;
+	    }
+        
         .row .myhighlight{
             text-align: center;
         }
@@ -56,6 +62,10 @@
             text-shadow: 2px 2px 3px gold;
         }
         
+        .notviewable{
+            visibility: hidden; 
+        }
+        
         .v_color {
             color: green;
         }
@@ -85,7 +95,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link animated shake slower" href="#">nav2</a>
+                            <a class="nav-link animated shake slower" onclick="vueCSS()">Footer</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -165,7 +175,7 @@
                         <img src="img/auz_map.jpg" class="rounded-circle animated fadeInLeftBig slower" />
                         <h2>Australia</h2>
                         <p>Working holiday story...</p>
-                        <p><a class="btn btn-secondary gold_shadow" href="#" role="button">View details »</a></p>
+                        <p><a class="btn btn-secondary gold_shadow animated jello slower" href="#" role="button">View details »</a></p>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight">
                         <img src="img/nz_map.jpg" class="rounded-circle animated bounceInDown slower" />
@@ -173,23 +183,23 @@
                         <p>Travel story...</p>
                         <p><a class="btn btn-secondary gold_shadow animated bounceInUp slower" href="#" role="button">View details »</a></p>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight animated fadeIn slower">
-                        <img src="img/eu_map.jpg" class="rounded-circle" />
+                    <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight">
+                        <img src="img/eu_map.jpg" class="rounded-circle animated shake slower" />
                         <h2>Europe</h2>
                         <p>Travel story...</p>
                         <p><a class="btn btn-secondary gold_shadow" href="#" role="button">View details »</a></p>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight animated rotateInDownRight slower">
-                        <img src="img/usa_map.jpg" class="rounded-circle" />
+                    <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight">
+                        <img src="img/usa_map.jpg" class="rounded-circle animated rotateInDownRight slower" />
                         <h2>USA</h2>
                         <p>Travel story...</p>
-                        <p><a class="btn btn-secondary gold_shadow" href="#" role="button">View details »</a></p>
+                        <p><a class="btn btn-secondary gold_shadow animated rotateInDownRight slower" href="#" role="button">View details »</a></p>
                     </div>
                 </div>
             </div>
 
             <!--test bottom-->
-            <div class="col-12 test_footer">
+            <div id="footer" class="col-12 test_footer notviewable">
                 <div id="vue">
                     <!-- loop -->
                     <div v-bind:class="{v_color: true, v_size: true}">
@@ -287,6 +297,10 @@
         });
     });
 
+    function vueCSS(){
+        $('#footer').toggleClass('notviewable');
+    }
+    
     let app = new Vue({
         el: '#vue',
         data: {
