@@ -3,9 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
+     <!-- vue js -->            
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <!-- jquery js -->    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>        
+     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">    
+     <!-- animate CSS -->    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+     <!-- popper js -->    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+     <!-- Bootstrap js -->    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>    
     <title>lukegit-my journey</title>
     <style type="text/css">
         h1, h2, h3, h4, h5, h6 {
@@ -46,13 +55,17 @@
         .test_footer{
             border-style: inset;
             padding-top: 30px;
-/*            background-color: #f4faff;*/
         }
         
         .dropdown:hover>.dropdown-menu {
             display: block;
         }
 
+        .dropdown-item:hover {
+            font-weight:bold;
+            -webkit-transition:transform 0.25s ease-in-out;
+        }
+        
         .dropdown>.dropdown-toggle:active {
             /*Without this, clicking will make it sticky*/
             pointer-events: none;
@@ -95,7 +108,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link animated shake slower" onclick="vueCSS()">Footer</a>
+                            <a class="nav-link animated shake slower" onclick="vueFooter()">Footer</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -103,13 +116,13 @@
                                 Travel
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Auz</a></li>
+                                <li><a class="dropdown-item" href="./travel/auz.html">Auz</a></li>
                                 <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Nz</a></li>
+                                <li><a class="dropdown-item" href="./travel/nz.html">NZ</a></li>
                                 <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">EU</a></li>
+                                <li><a class="dropdown-item" href="./travel/eu.html">EU</a></li>
                                 <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">USA</a></li>
+                                <li><a class="dropdown-item" href="./travel/usa.html">USA</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -174,25 +187,25 @@
                     <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight">
                         <img src="img/auz_map.jpg" class="rounded-circle animated fadeInLeftBig slower" />
                         <h2>Australia</h2>
-                        <p>Working holiday story...</p>
+                        <p>Working holiday story start from Oct. 2015...</p>
                         <p><a class="btn btn-secondary gold_shadow animated jello slower" href="#" role="button">View details »</a></p>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight">
                         <img src="img/nz_map.jpg" class="rounded-circle animated bounceInDown slower" />
                         <h2>New Zealand</h2>
-                        <p>Travel story...</p>
+                        <p>You should go, seriously telling you...</p>
                         <p><a class="btn btn-secondary gold_shadow animated bounceInUp slower" href="#" role="button">View details »</a></p>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight">
                         <img src="img/eu_map.jpg" class="rounded-circle animated shake slower" />
                         <h2>Europe</h2>
-                        <p>Travel story...</p>
+                        <p>Netherland, Belgium, Germany, Austria...</p>
                         <p><a class="btn btn-secondary gold_shadow" href="#" role="button">View details »</a></p>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-3 myhighlight">
                         <img src="img/usa_map.jpg" class="rounded-circle animated rotateInDownRight slower" />
                         <h2>USA</h2>
-                        <p>Travel story...</p>
+                        <p>NBA I'm coming...</p>
                         <p><a class="btn btn-secondary gold_shadow animated rotateInDownRight slower" href="#" role="button">View details »</a></p>
                     </div>
                 </div>
@@ -233,7 +246,7 @@
 
                 <div id="vue2">
                     <div v-bind:style="vStyle">
-                        VUE2 div
+                        只是測試而已 呵呵
                     </div>
                 </div>
             </div>
@@ -241,11 +254,7 @@
     </div>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+
 <script>
     $(document).ready(function() {
         function resize() {
@@ -295,10 +304,12 @@
             }
 
         });
+        
     });
 
-    function vueCSS(){
+    function vueFooter(){
         $('#footer').toggleClass('notviewable');
+        $('html,body').animate({scrollTop:$('#footer').offset().top}, 500);
     }
     
     let app = new Vue({
